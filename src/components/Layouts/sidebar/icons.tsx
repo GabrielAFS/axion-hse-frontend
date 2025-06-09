@@ -186,3 +186,102 @@ export function ArrowLeftIcon(props: PropsType) {
     </svg>
   );
 }
+
+export function Forms(props: PropsType) {
+  return (
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      width={24}
+      height={24}
+      viewBox="0 0 24 24"
+      fill="none"
+      {...props}
+    >
+      <path
+        fillRule="evenodd"
+        clipRule="evenodd"
+        d="M4 2.75A2.75 2.75 0 016.75 0h10.5A2.75 2.75 0 0120 2.75v18.5A2.75 2.75 0 0117.25 24H6.75A2.75 2.75 0 014 21.25V2.75zM6.75 1.5a1.25 1.25 0 00-1.25 1.25v18.5c0 .69.56 1.25 1.25 1.25h10.5c.69 0 1.25-.56 1.25-1.25V2.75c0-.69-.56-1.25-1.25-1.25H6.75z"
+        fill="currentColor"
+      />
+      <path
+        d="M7.5 6.75a.75.75 0 01.75-.75h7.5a.75.75 0 010 1.5H8.25a.75.75 0 01-.75-.75zM7.5 10.5a.75.75 0 01.75-.75h7.5a.75.75 0 010 1.5H8.25a.75.75 0 01-.75-.75zM7.5 14.25a.75.75 0 01.75-.75h4.5a.75.75 0 010 1.5h-4.5a.75.75 0 01-.75-.75z"
+        fill="currentColor"
+      />
+    </svg>
+  );
+}
+
+export function Management(props: PropsType) {
+  return (
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      fill="none"
+      viewBox="0 0 24 24"
+      strokeWidth={1.5}
+      stroke="currentColor"
+      className="size-6"
+      {...props}
+    >
+      <path
+        strokeLinecap="round"
+        strokeLinejoin="round"
+        d="M7.5 21 3 16.5m0 0L7.5 12M3 16.5h13.5m0-13.5L21 7.5m0 0L16.5 12M21 7.5H7.5"
+      />
+    </svg>
+  );
+}
+
+export function Fire(props: PropsType) {
+  return (
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      viewBox="0 0 24 24"
+      fill="currentColor"
+      className="size-6"
+      {...props}
+    >
+      <path
+        fillRule="evenodd"
+        d="M12.963 2.286a.75.75 0 0 0-1.071-.136 9.742 9.742 0 0 0-3.539 6.176 7.547 7.547 0 0 1-1.705-1.715.75.75 0 0 0-1.152-.082A9 9 0 1 0 15.68 4.534a7.46 7.46 0 0 1-2.717-2.248ZM15.75 14.25a3.75 3.75 0 1 1-7.313-1.172c.628.465 1.35.81 2.133 1a5.99 5.99 0 0 1 1.925-3.546 3.75 3.75 0 0 1 3.255 3.718Z"
+        clipRule="evenodd"
+      />
+    </svg>
+  );
+}
+
+export function ESocial(props: PropsType) {
+  return (
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      x="0px"
+      y="0px"
+      width="100"
+      height="100"
+      viewBox="0 0 48 48"
+      {...props}
+    >
+      <path
+        fill="#2e7d32"
+        d="M40,6H24l-2,4L10,21l-4,2v17c0,1.105,0.895,2,2,2h32c1.105,0,2-0.895,2-2V8C42,6.895,41.105,6,40,6z"
+      ></path>
+      <path fill="#c8e6c9" d="M38 38L10 38 10 21 22 10 38 10z"></path>
+      <path fill="#26662b" d="M6,23c0,0,1.673,0.198,4,0.469V21L6,23z"></path>
+      <path
+        fill="#a5d6a7"
+        d="M10,21v2.469C15.069,24.061,23.243,25,24,25c1.105,0,2-0.895,2-2c0-0.745-0.909-8.213-1.502-13H22 L10,21z"
+      ></path>
+      <path
+        fill="#26662b"
+        d="M22,10h2.498C24.213,7.689,24,6,24,6L22,10z"
+      ></path>
+      <path
+        fill="#fbc02d"
+        d="M24,6v15c0,1.1-0.9,2-2,2H6l4.3-4.06l9.85-9.3L24,6z"
+      ></path>
+      <path
+        fill="#0288d1"
+        d="M21,13c0,3.87-3.13,7-7,7c-1.36,0-2.63-0.39-3.7-1.06l9.85-9.3C20.69,10.64,21,11.78,21,13z"
+      ></path>
+    </svg>
+  );
+}

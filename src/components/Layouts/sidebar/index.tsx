@@ -28,7 +28,7 @@ export function Sidebar() {
     // Keep collapsible open, when it's subpage is active
     NAV_DATA.some((section) => {
       return section.items.some((item) => {
-        return item.items.some((subItem) => {
+        return item?.items?.some((subItem) => {
           if (subItem.url === pathname) {
             if (!expandedItems.includes(item.title)) {
               toggleExpanded(item.title);
@@ -97,7 +97,7 @@ export function Sidebar() {
                   <ul className="space-y-2">
                     {section.items.map((item) => (
                       <li key={item.title}>
-                        {item.items.length ? (
+                        {item?.items?.length ? (
                           <div>
                             <MenuItem
                               isActive={item.items.some(
@@ -105,10 +105,12 @@ export function Sidebar() {
                               )}
                               onClick={() => toggleExpanded(item.title)}
                             >
-                              <item.icon
-                                className="size-6 shrink-0"
-                                aria-hidden="true"
-                              />
+                              {item.icon && (
+                                <item.icon
+                                  className="size-6 shrink-0"
+                                  aria-hidden="true"
+                                />
+                              )}
 
                               <span>{item.title}</span>
 
@@ -131,7 +133,7 @@ export function Sidebar() {
                                   <li key={subItem.title} role="none">
                                     <MenuItem
                                       as="link"
-                                      href={subItem.url}
+                                      href={subItem.url ?? ""}
                                       isActive={pathname === subItem.url}
                                     >
                                       <span>{subItem.title}</span>
@@ -156,10 +158,12 @@ export function Sidebar() {
                                 href={href}
                                 isActive={pathname === href}
                               >
-                                <item.icon
-                                  className="size-6 shrink-0"
-                                  aria-hidden="true"
-                                />
+                                {item.icon && (
+                                  <item.icon
+                                    className="size-6 shrink-0"
+                                    aria-hidden="true"
+                                  />
+                                )}
 
                                 <span>{item.title}</span>
                               </MenuItem>

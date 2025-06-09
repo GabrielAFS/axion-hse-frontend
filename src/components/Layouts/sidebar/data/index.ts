@@ -1,34 +1,49 @@
+import { ReactElement } from "react";
+
 import * as Icons from "../icons";
 
-export const NAV_DATA = [
+interface SidebarSectionItem {
+  title: string;
+  icon?: (props: Icons.PropsType) => ReactElement;
+  url?: string;
+  items?: SidebarSectionItem[];
+}
+
+interface SidebarSection {
+  label: string;
+  items: SidebarSectionItem[];
+}
+
+export const NAV_DATA: SidebarSection[] = [
   {
     label: "MAIN MENU",
     items: [
       {
-        title: "Dashboard",
+        title: "Início",
+        url: "/",
         icon: Icons.HomeIcon,
+        items: [],
+      },
+      {
+        title: "Cadastros",
+        url: "/calendar",
+        icon: Icons.Forms,
         items: [
           {
-            title: "eCommerce",
-            url: "/",
+            title: "Settings",
+            url: "/pages/settings",
           },
         ],
       },
       {
-        title: "Calendar",
-        url: "/calendar",
-        icon: Icons.Calendar,
-        items: [],
-      },
-      {
-        title: "Profile",
+        title: "Vínculos",
         url: "/profile",
         icon: Icons.User,
         items: [],
       },
       {
-        title: "Forms",
-        icon: Icons.Alphabet,
+        title: "Gestão",
+        icon: Icons.Management,
         items: [
           {
             title: "Form Elements",
@@ -41,25 +56,15 @@ export const NAV_DATA = [
         ],
       },
       {
-        title: "Tables",
+        title: "CAT",
         url: "/tables",
-        icon: Icons.Table,
-        items: [
-          {
-            title: "Tables",
-            url: "/tables",
-          },
-        ],
+        icon: Icons.Fire,
+        items: [],
       },
       {
-        title: "Pages",
-        icon: Icons.Alphabet,
-        items: [
-          {
-            title: "Settings",
-            url: "/pages/settings",
-          },
-        ],
+        title: "eSocial",
+        icon: Icons.ESocial,
+        items: [],
       },
     ],
   },
