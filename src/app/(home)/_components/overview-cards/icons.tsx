@@ -2,10 +2,73 @@ import type { SVGProps } from "react";
 
 type SVGPropsType = SVGProps<SVGSVGElement>;
 
+export function Bolt(props: SVGPropsType) {
+  return (
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      viewBox="0 0 58 58"
+      fill="none"
+      width={58}
+      height={58}
+      {...props}
+    >
+      <circle cx={29} cy={29} r={29} fill="#3FD97F" />
+      <path
+        fillRule="evenodd"
+        d="M29.615 19.595a.75.75 0 0 1 .359.852L27.982 27.75h7.268a.75.75 0 0 1 .548 1.262l-10.5 11.25a.75.75 0 0 1-1.272-.71l1.992-7.302H17.75a.75.75 0 0 1-.548-1.262l10.5-11.25a.75.75 0 0 1 .913-.143Z"
+        clipRule="evenodd"
+        fill="#fff"
+      />
+    </svg>
+  );
+}
+
+export function Hearth(props: SVGPropsType) {
+  return (
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      viewBox="0 0 58 58"
+      fill="none"
+      width={58}
+      height={58}
+      {...props}
+    >
+      <circle cx={29} cy={29} r={29} fill="#8155FF" />
+      <path
+        fillRule="evenodd"
+        d="M29 37.85c-.007-.003-.022-.012-.383-.218a25.18 25.18 0 0 1-4.244-3.17c-2.301-2.145-4.739-5.331-4.739-9.256 0-2.928 2.464-5.25 5.437-5.25A5.5 5.5 0 0 1 29 23.052a5.5 5.5 0 0 1 4.313-2.802c2.973 0 5.437 2.322 5.437 5.25 0 3.925-2.438 7.111-4.739 9.256a25.175 25.175 0 0 1-4.244 3.17c-.383.219-.022.012-.007.004-.003.001a.752.752 0 0 1-.704 0l-.003-.001Z"
+        clipRule="evenodd"
+        fill="#fff"
+      />
+    </svg>
+  );
+}
+
+export function Trash(props: SVGPropsType) {
+  return (
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      viewBox="0 0 58 58"
+      fill="none"
+      width={58}
+      height={58}
+      {...props}
+    >
+      <circle cx={29} cy={29} r={29} fill="#f23030" />
+      <path
+        fillRule="evenodd"
+        d="M32 20.478v.227a48.816 48.816 0 0 1 3.878.512.75.75 0 1 1-.256 1.478l-.209-.035-1.005 13.07a3 3 0 0 1-2.991 2.77h-7.142a3 3 0 0 1-2.991-2.77l-1.005-13.07-.209.035a.75.75 0 0 1-.256-1.478 48.567 48.567 0 0 1 3.878-.512v-.227c0-1.564 1.213-2.9 2.816-2.951a52.662 52.662 0 0 1 3.369 0c1.603.051 2.815 1.387 2.815 2.951Zm-6.136-1.452a51.196 51.196 0 0 1 3.273 0c.755.024 1.364.658 1.364 1.452v.113a49.488 49.488 0 0 0-6 0v-.113c0-.794.609-1.428 1.364-1.452Zm-.355 5.945a.75.75 0 1 0-1.5.058l.347 9a.75.75 0 1 0 1.499-.058l-.346-9Zm5.48.058a.75.75 0 1 0-1.498-.058l-.347 9a.75.75 0 0 0 1.5.058l.345-9Z"
+        clipRule="evenodd"
+        fill="#fff"
+      />
+    </svg>
+  );
+}
+
 export function Views(props: SVGPropsType) {
   return (
     <svg width={58} height={58} viewBox="0 0 58 58" fill="none" {...props}>
-      <circle cx={29} cy={29} r={29} fill="#3FD97F" />
+      <circle cx={29} cy={29} r={29} fill="#FF9C55" />
       <path
         d="M26.562 29a2.437 2.437 0 114.875 0 2.437 2.437 0 01-4.875 0z"
         fill="#fff"

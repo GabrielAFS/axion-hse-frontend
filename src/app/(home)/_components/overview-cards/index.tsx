@@ -9,39 +9,39 @@ export async function OverviewCardsGroup() {
   return (
     <div className="grid gap-4 sm:grid-cols-2 sm:gap-6 xl:grid-cols-4 2xl:gap-7.5">
       <OverviewCard
-        label="Total Views"
+        label="S-2210"
         data={{
           ...views,
           value: compactFormat(views.value),
         }}
-        Icon={icons.Views}
+        Icon={icons.Bolt}
       />
 
       <OverviewCard
-        label="Total Profit"
+        label="S-2220"
         data={{
           ...profit,
           value: "$" + compactFormat(profit.value),
         }}
-        Icon={icons.Profit}
+        Icon={icons.Hearth}
       />
 
       <OverviewCard
-        label="Total Products"
+        label="S-2240"
         data={{
           ...products,
           value: compactFormat(products.value),
         }}
-        Icon={icons.Product}
+        Icon={icons.Users}
       />
 
       <OverviewCard
-        label="Total Users"
+        label="S-3000"
         data={{
           ...users,
           value: compactFormat(users.value),
         }}
-        Icon={icons.Users}
+        Icon={icons.Trash}
       />
     </div>
   );
