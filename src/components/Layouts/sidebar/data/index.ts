@@ -69,11 +69,11 @@ export const NAV_DATA: SidebarItem[] = [
             url: "/cadastros/customizar/txt-padrao",
           },
           {
-            title: "Anexos Padrão",
+            title: "Textos Rápidos",
             url: "/cadastros/customizar/txt-rapidos",
           },
           {
-            title: "Anexos Padrão",
+            title: "Ordem de Serviço",
             url: "/cadastros/customizar/ordem-servico",
           },
         ],
@@ -113,16 +113,16 @@ export const NAV_DATA: SidebarItem[] = [
             title: "APR/APP",
             items: [
               {
+                title: "APR/APP",
+                url: "/cadastros/seguranca-trabalho/apr-app/",
+              },
+              {
                 title: "Etapas",
                 url: "/cadastros/seguranca-trabalho/apr-app/etapas",
               },
               {
                 title: "Riscos x Atividades",
                 url: "/cadastros/seguranca-trabalho/apr-app/riscos",
-              },
-              {
-                title: "APR/APP",
-                url: "/cadastros/seguranca-trabalho/apr-app/",
               },
             ],
           },
@@ -154,11 +154,11 @@ export const NAV_DATA: SidebarItem[] = [
             items: [
               {
                 title: "Categorias",
-                url: "/cadastros/clinica/aptidoes/categorias",
+                url: "/cadastros/clinica/prontuario/categorias",
               },
               {
                 title: "Modelos",
-                url: "/cadastros/clinica/aptidoes/modelos",
+                url: "/cadastros/clinica/prontuario/modelos",
               },
             ],
           },
