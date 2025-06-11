@@ -1,18 +1,17 @@
 import { ArrowDownIcon, ArrowUpIcon } from "@/assets/icons";
 import { cn } from "@/lib/utils";
 import type { JSX, SVGProps } from "react";
+import { IOverviewDataValue } from "../../_types/overview-cards";
 
-type PropsType = {
+interface PropsType {
   label: string;
-  data: {
-    value: number | string;
-    growthRate: number;
-  };
+  data: IOverviewDataValue;
   Icon: (props: SVGProps<SVGSVGElement>) => JSX.Element;
-};
+}
 
 export function OverviewCard({ label, data, Icon }: PropsType) {
-  const isDecreasing = data.growthRate < 0;
+  const percentual = (data?.percentual ?? 0) * 100;
+  const isDecreasing = percentual < 50;
 
   return (
     <div className="rounded-[10px] bg-white p-6 shadow-1 dark:bg-gray-dark">
@@ -34,7 +33,7 @@ export function OverviewCard({ label, data, Icon }: PropsType) {
           )}
         >
           <dt className="flex items-center gap-1.5">
-            {data.growthRate}%
+            {percentual}%
             {isDecreasing ? (
               <ArrowDownIcon aria-hidden />
             ) : (
@@ -43,8 +42,7 @@ export function OverviewCard({ label, data, Icon }: PropsType) {
           </dt>
 
           <dd className="sr-only">
-            {label} {isDecreasing ? "Decreased" : "Increased"} by{" "}
-            {data.growthRate}%
+            {label} {isDecreasing ? "Decreased" : "Increased"} by {percentual}%
           </dd>
         </dl>
       </div>

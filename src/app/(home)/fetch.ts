@@ -1,23 +1,24 @@
-export async function getOverviewData() {
+import { IOverviewData } from "./_types/overview-cards";
+
+export async function getOverviewData(): Promise<IOverviewData> {
   // Fake delay
   await new Promise((resolve) => setTimeout(resolve, 2000));
 
   return {
-    views: {
-      value: 3456,
-      growthRate: 0.43,
+    "s-2210": {
+      value: 2,
+      percentual: 1,
     },
-    profit: {
-      value: 4220,
-      growthRate: 4.35,
+    "s-2220": {
+      value: 4,
+      percentual: 0.019,
     },
-    products: {
-      value: 3456,
-      growthRate: 2.59,
+    "s-2240": {
+      value: 39,
+      percentual: 0.124,
     },
-    users: {
-      value: 3456,
-      growthRate: -0.95,
+    "s-3000": {
+      value: 0,
     },
   };
 }
