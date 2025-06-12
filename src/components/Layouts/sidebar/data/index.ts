@@ -314,7 +314,7 @@ export const NAV_DATA: SidebarItem[] = [
           },
           {
             title: "Atestados",
-            url: "/gestao/medicina/Atestados",
+            url: "/gestao/medicina/atestados",
           },
           {
             title: "Resultados de Exames",
