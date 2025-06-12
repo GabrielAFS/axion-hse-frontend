@@ -354,19 +354,19 @@ export const NAV_DATA: SidebarItem[] = [
     items: [
       {
         title: "Certificados",
-        url: "/esocial/certificados/",
+        url: "/eSocial/certificados",
       },
       {
         title: "Painel",
-        url: "/esocial/painel/",
+        url: "/eSocial/painel",
       },
       {
         title: "Eventos",
-        url: "/esocial/eventos/",
+        url: "/eSocial/eventos",
       },
       {
         title: "Envios",
-        url: "/esocial/envios/",
+        url: "/eSocial/envios",
       },
     ],
   },
