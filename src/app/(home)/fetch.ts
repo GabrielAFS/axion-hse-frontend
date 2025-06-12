@@ -90,3 +90,23 @@ export async function getChatsData() {
     },
   ];
 }
+
+export async function getEmployers() {
+  // Fake delay
+  await new Promise((resolve) => setTimeout(resolve, 1000));
+
+  return [
+    { label: "Employer A", value: "001" },
+    { label: "Employer B", value: "002" },
+    { label: "Employer C", value: "003" },
+    { label: "Employer D", value: "004" },
+    { label: "Employer E", value: "005" },
+  ];
+}
+
+export async function getUnitsAndOutsourcingByEmployer() {
+  // Fake delay
+  await new Promise((resolve) => setTimeout(resolve, 1000));
+
+  return [];
+}
