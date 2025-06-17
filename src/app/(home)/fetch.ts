@@ -92,9 +92,6 @@ export async function getChatsData() {
 }
 
 export async function getEmployers() {
-  // Fake delay
-  await new Promise((resolve) => setTimeout(resolve, 1000));
-
   return [
     { label: "Employer A", value: "001" },
     { label: "Employer B", value: "002" },
@@ -104,9 +101,52 @@ export async function getEmployers() {
   ];
 }
 
-export async function getUnitsAndOutsourcingByEmployer() {
-  // Fake delay
-  await new Promise((resolve) => setTimeout(resolve, 1000));
+export async function getUnitsAndOutsourcingByEmployer(employerId?: string) {
+  const data = [
+    {
+      id: "unit-101",
+      name: "Unidade Central",
+      type: "unit",
+      employerId: "001",
+      address: "Rua Principal, 123",
+      employees: 120,
+    },
+    {
+      id: "unit-102",
+      name: "Unidade Secundária",
+      type: "unit",
+      employerId: "002",
+      address: "Avenida Secundária, 456",
+      employees: 80,
+    },
+    {
+      id: "outsourcing-201",
+      name: "Terceirizada Alpha",
+      type: "outsourcing",
+      employerId: "001",
+      address: "Rua das Terceirizadas, 789",
+      employees: 40,
+    },
+    {
+      id: "outsourcing-202",
+      name: "Terceirizada Beta",
+      type: "outsourcing",
+      employerId: "003",
+      address: "Avenida Beta, 321",
+      employees: 25,
+    },
+  ];
 
-  return [];
+  return employerId
+    ? data.reduce((prevValue, currValue) => {
+        if (currValue.employerId === employerId) {
+          return prevValue.concat({
+            label: currValue.id,
+            value: currValue.name,
+          });
+        }
+
+        return prevValue;
+      }, [] as any[])
+    : [];
 }

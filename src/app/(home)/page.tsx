@@ -3,19 +3,23 @@ import { OverviewCardsGroup } from "./_components/overview-cards";
 import { OverviewCardsSkeleton } from "./_components/overview-cards/skeleton";
 import { Select } from "@/components/FormElements/select";
 import { getEmployers, getUnitsAndOutsourcingByEmployer } from "./fetch";
-import { useEmployer } from "@/hooks/use-employers";
+
+const SELECT_EMPLOYER_QUERY__KEY = "selected_employer";
+const SELECT_UNIT_QUERY__KEY = "selected_unit";
 
 type PropsType = {
   searchParams: Promise<{
-    selected_time_frame?: string;
+    [SELECT_EMPLOYER_QUERY__KEY]?: string;
+    [SELECT_UNIT_QUERY__KEY]?: string;
   }>;
 };
 
 export default async function Home({ searchParams }: PropsType) {
-  const { selectedEmployer, setSelectedEmployer } = useEmployer();
+  const { selected_employer, selected_unit } = await searchParams;
 
   const employers = await getEmployers();
-  const unitsAndOutsourcings = await getUnitsAndOutsourcingByEmployer();
+  const unitsAndOutsourcings =
+    await getUnitsAndOutsourcingByEmployer(selected_employer);
 
   return (
     <>
@@ -29,8 +33,9 @@ export default async function Home({ searchParams }: PropsType) {
             },
             ...employers,
           ]}
-          defaultValue={selectedEmployer}
+          defaultValue=""
           className="grow-[2]"
+          queryKey={SELECT_EMPLOYER_QUERY__KEY}
         />
         <Select
           label="Unidade / Terceirização"
@@ -43,6 +48,7 @@ export default async function Home({ searchParams }: PropsType) {
           ]}
           defaultValue=""
           className="grow-[1]"
+          queryKey={SELECT_UNIT_QUERY__KEY}
         />
       </div>
       <Suspense fallback={<OverviewCardsSkeleton />}>
