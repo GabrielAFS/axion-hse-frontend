@@ -141,8 +141,8 @@ export async function getUnitsAndOutsourcingByEmployer(employerId?: string) {
     ? data.reduce((prevValue, currValue) => {
         if (currValue.employerId === employerId) {
           return prevValue.concat({
-            label: currValue.id,
-            value: currValue.name,
+            label: currValue.name,
+            value: currValue.id,
           });
         }
 
