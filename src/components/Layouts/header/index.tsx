@@ -1,8 +1,6 @@
 "use client";
 
 import { SearchIcon } from "@/assets/icons";
-import Image from "next/image";
-import Link from "next/link";
 import { useSidebarContext } from "../sidebar/sidebar-context";
 import { MenuIcon } from "./icons";
 import { Notification } from "./notification";
@@ -10,7 +8,7 @@ import { ThemeToggleSwitch } from "./theme-toggle";
 import { UserInfo } from "./user-info";
 
 export function Header() {
-  const { toggleSidebar, isMobile } = useSidebarContext();
+  const { toggleSidebar } = useSidebarContext();
 
   return (
     <header className="sticky top-0 z-30 flex items-center justify-between border-b border-stroke bg-white px-4 py-5 shadow-1 dark:border-stroke-dark dark:bg-gray-dark md:px-5 2xl:px-10">
@@ -22,20 +20,8 @@ export function Header() {
         <span className="sr-only">Toggle Sidebar</span>
       </button>
 
-      {isMobile && (
-        <Link href={"/"} className="ml-2 max-[430px]:hidden min-[375px]:ml-4">
-          <Image
-            src={"/images/logo/logo-icon.svg"}
-            width={32}
-            height={32}
-            alt=""
-            role="presentation"
-          />
-        </Link>
-      )}
-
-      <div className="max-xl:hidden">
-        <div className="relative w-full max-w-[300px]">
+      <div className="max-md:hidden">
+        <div className="relative w-full max-w-[300px] md:ml-2">
           <input
             type="search"
             placeholder="Pesquisar..."
