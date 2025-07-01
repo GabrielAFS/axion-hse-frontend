@@ -1,4 +1,4 @@
-import Breadcrumb from "@/components/Breadcrumbs/Breadcrumb";
+
 import { Metadata } from "next";
 
 const TITLE = "Ambientes de Trabalho";
@@ -10,8 +10,7 @@ export const metadata: Metadata = {
 const OSEnvironmentsPage = () => {
   return (
     <>
-      <Breadcrumb pageName={TITLE} />
-    </>
+      </>
   );
 };
 

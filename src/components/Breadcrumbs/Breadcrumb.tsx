@@ -4,9 +4,7 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { NAV_DATA, SidebarItem } from "../Layouts/sidebar/data";
 
-interface BreadcrumbProps {
-  pageName: string;
-}
+interface BreadcrumbProps {}
 
 const flat =
   (

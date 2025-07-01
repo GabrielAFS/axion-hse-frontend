@@ -1,4 +1,4 @@
-import Breadcrumb from "@/components/Breadcrumbs/Breadcrumb";
+
 import { Metadata } from "next";
 
 const TITLE = "Profissionais";
@@ -10,8 +10,7 @@ export const metadata: Metadata = {
 const ProfessionalsPage = () => {
   return (
     <>
-      <Breadcrumb pageName={TITLE} />
-    </>
+      </>
   );
 };
 
