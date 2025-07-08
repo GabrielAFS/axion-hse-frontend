@@ -5,6 +5,8 @@ import { TableCell } from "@/components/ui/table/cell";
 import Pagination from "@/components/ui/pagination";
 import { getEmployers } from "../fetch";
 
+const ITEMS_PER_PAGE = 10;
+
 const COLUMNS = [
   "Identificação",
   "Razão Social",
@@ -19,6 +21,8 @@ const spanSelector = "[&_div>span:first-child]";
 
 export default async function EmployersTable() {
   const employers = await getEmployers();
+
+  const totalPages = Math.ceil(employers.length / ITEMS_PER_PAGE);
 
   return (
     <>
@@ -79,7 +83,7 @@ export default async function EmployersTable() {
       />
 
       <div className="mt-5 flex w-full justify-center">
-        <Pagination totalPages={employers.length} />
+        <Pagination totalPages={totalPages} />
       </div>
     </>
   );
