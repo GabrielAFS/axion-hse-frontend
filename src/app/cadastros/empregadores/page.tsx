@@ -10,7 +10,15 @@ export const metadata: Metadata = {
   title: TITLE,
 };
 
-const EmployersPage = () => {
+export default async function EmployersPage(props: {
+  searchParams?: Promise<{
+    query?: string;
+    page?: string;
+  }>;
+}) {
+  const searchParams = await props.searchParams;
+  const query = searchParams?.query || "";
+  const currentPage = Number(searchParams?.page) || 1;
   const formHref = "/cadastros/empregadores/novo";
 
   return (
@@ -25,7 +33,7 @@ const EmployersPage = () => {
           />
         </Link>
       </div>
-      <EmployersTable />
+      <EmployersTable query={query} currentPage={currentPage} />
 
       <Link href={formHref} className="fixed bottom-4 right-4 md:hidden">
         <Button
@@ -37,6 +45,4 @@ const EmployersPage = () => {
       </Link>
     </>
   );
-};
-
-export default EmployersPage;
+}

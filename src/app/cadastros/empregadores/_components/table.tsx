@@ -5,8 +5,6 @@ import { TableCell } from "@/components/ui/table/cell";
 import Pagination from "@/components/ui/pagination";
 import { getEmployers } from "../fetch";
 
-const ITEMS_PER_PAGE = 10;
-
 const COLUMNS = [
   "Identificação",
   "Razão Social",
@@ -19,10 +17,14 @@ const COLUMNS = [
 
 const spanSelector = "[&_div>span:first-child]";
 
-export default async function EmployersTable() {
-  const employers = await getEmployers();
-
-  const totalPages = Math.ceil(employers.length / ITEMS_PER_PAGE);
+export default async function EmployersTable({
+  query,
+  currentPage,
+}: {
+  query: string;
+  currentPage: number;
+}) {
+  const { employers, totalPages } = await getEmployers(query, currentPage);
 
   return (
     <>

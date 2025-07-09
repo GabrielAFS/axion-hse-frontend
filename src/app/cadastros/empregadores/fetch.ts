@@ -1,100 +1,112 @@
-export async function getEmployers() {
-  return [
-    {
-      id: "Empresa A",
-      razaoSocial: "Empresa A LTDA",
-      situacao: "Ativo",
-      tipo: "CPF",
-      cidade: "São Paulo",
-      uf: "SP",
-    },
-    {
-      id: "Empresa B",
-      razaoSocial: "Empresa B LTDA",
-      situacao: "Inativo",
-      tipo: "CNPJ",
-      cidade: "Rio de Janeiro",
-      uf: "RJ",
-    },
-    {
-      id: "Empresa C",
-      razaoSocial: "Empresa C LTDA",
-      situacao: "Ativo",
-      tipo: "CPF",
-      cidade: "São Paulo",
-      uf: "SP",
-    },
-    {
-      id: "Empresa D",
-      razaoSocial: "Empresa D LTDA",
-      situacao: "Inativo",
-      tipo: "CNPJ",
-      cidade: "Rio de Janeiro",
-      uf: "RJ",
-    },
-    {
-      id: "Empresa E",
-      razaoSocial: "Empresa E LTDA",
-      situacao: "Ativo",
-      tipo: "CPF",
-      cidade: "São Paulo",
-      uf: "SP",
-    },
-    {
-      id: "Empresa F",
-      razaoSocial: "Empresa F LTDA",
-      situacao: "Inativo",
-      tipo: "CNPJ",
-      cidade: "Rio de Janeiro",
-      uf: "RJ",
-    },
-    {
-      id: "Empresa G",
-      razaoSocial: "Empresa G LTDA",
-      situacao: "Ativo",
-      tipo: "CPF",
-      cidade: "São Paulo",
-      uf: "SP",
-    },
-    {
-      id: "Empresa H",
-      razaoSocial: "Empresa H LTDA",
-      situacao: "Inativo",
-      tipo: "CNPJ",
-      cidade: "Rio de Janeiro",
-      uf: "RJ",
-    },
-    {
-      id: "Empresa I",
-      razaoSocial: "Empresa I LTDA",
-      situacao: "Ativo",
-      tipo: "CPF",
-      cidade: "São Paulo",
-      uf: "SP",
-    },
-    {
-      id: "Empresa J",
-      razaoSocial: "Empresa J LTDA",
-      situacao: "Inativo",
-      tipo: "CNPJ",
-      cidade: "Rio de Janeiro",
-      uf: "RJ",
-    },
-    {
-      id: "Empresa K",
-      razaoSocial: "Empresa K LTDA",
-      situacao: "Ativo",
-      tipo: "CPF",
-      cidade: "São Paulo",
-      uf: "SP",
-    },
-    {
-      id: "Empresa L",
-      razaoSocial: "Empresa L LTDA",
-      situacao: "Inativo",
-      tipo: "CNPJ",
-      cidade: "Rio de Janeiro",
-      uf: "RJ",
-    },
-  ];
+const ITEMS_PER_PAGE = 10;
+
+const DUMMY_EMPLOYERS = [
+  {
+    id: "Empresa A",
+    razaoSocial: "Empresa A LTDA",
+    situacao: "Ativo",
+    tipo: "CPF",
+    cidade: "São Paulo",
+    uf: "SP",
+  },
+  {
+    id: "Empresa B",
+    razaoSocial: "Empresa B LTDA",
+    situacao: "Inativo",
+    tipo: "CNPJ",
+    cidade: "Rio de Janeiro",
+    uf: "RJ",
+  },
+  {
+    id: "Empresa C",
+    razaoSocial: "Empresa C LTDA",
+    situacao: "Ativo",
+    tipo: "CPF",
+    cidade: "São Paulo",
+    uf: "SP",
+  },
+  {
+    id: "Empresa D",
+    razaoSocial: "Empresa D LTDA",
+    situacao: "Inativo",
+    tipo: "CNPJ",
+    cidade: "Rio de Janeiro",
+    uf: "RJ",
+  },
+  {
+    id: "Empresa E",
+    razaoSocial: "Empresa E LTDA",
+    situacao: "Ativo",
+    tipo: "CPF",
+    cidade: "São Paulo",
+    uf: "SP",
+  },
+  {
+    id: "Empresa F",
+    razaoSocial: "Empresa F LTDA",
+    situacao: "Inativo",
+    tipo: "CNPJ",
+    cidade: "Rio de Janeiro",
+    uf: "RJ",
+  },
+  {
+    id: "Empresa G",
+    razaoSocial: "Empresa G LTDA",
+    situacao: "Ativo",
+    tipo: "CPF",
+    cidade: "São Paulo",
+    uf: "SP",
+  },
+  {
+    id: "Empresa H",
+    razaoSocial: "Empresa H LTDA",
+    situacao: "Inativo",
+    tipo: "CNPJ",
+    cidade: "Rio de Janeiro",
+    uf: "RJ",
+  },
+  {
+    id: "Empresa I",
+    razaoSocial: "Empresa I LTDA",
+    situacao: "Ativo",
+    tipo: "CPF",
+    cidade: "São Paulo",
+    uf: "SP",
+  },
+  {
+    id: "Empresa J",
+    razaoSocial: "Empresa J LTDA",
+    situacao: "Inativo",
+    tipo: "CNPJ",
+    cidade: "Rio de Janeiro",
+    uf: "RJ",
+  },
+  {
+    id: "Empresa K",
+    razaoSocial: "Empresa K LTDA",
+    situacao: "Ativo",
+    tipo: "CPF",
+    cidade: "São Paulo",
+    uf: "SP",
+  },
+  {
+    id: "Empresa L",
+    razaoSocial: "Empresa L LTDA",
+    situacao: "Inativo",
+    tipo: "CNPJ",
+    cidade: "Rio de Janeiro",
+    uf: "RJ",
+  },
+];
+
+export async function getEmployers(query: string, currentPage: number) {
+  const startIndex = (currentPage - 1) * ITEMS_PER_PAGE;
+  const endIndex = startIndex + ITEMS_PER_PAGE;
+  const paginatedData = DUMMY_EMPLOYERS.slice(startIndex, endIndex);
+  const totalPages = Math.ceil(DUMMY_EMPLOYERS.length / ITEMS_PER_PAGE);
+
+  return {
+    totalPages,
+    employers: paginatedData,
+  };
 }
