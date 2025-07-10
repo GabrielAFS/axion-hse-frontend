@@ -14,8 +14,11 @@ export default function NewEmployerForm() {
 
   return (
     <ShowcaseSection title="Formulário de Cadastro" className="!p-6.5">
-      <form action="#">
-        <div className="mb-4.5 flex flex-col gap-4.5 xl:flex-row xl:items-end">
+      <form
+        action="#"
+        className="*:mb-4.5 *:flex *:flex-col *:gap-4.5 *:xl:flex-row *:xl:items-end"
+      >
+        <fieldset className="*:w-full *:xl:w-1/3">
           <Select
             label="Tipo Inscrição"
             items={[
@@ -24,7 +27,6 @@ export default function NewEmployerForm() {
             ]}
             defaultValue="CNPJ"
             queryKey="tipoInscricao"
-            className="w-full xl:w-1/3"
           />
 
           {subscriptionType === "CNPJ" ? (
@@ -32,7 +34,6 @@ export default function NewEmployerForm() {
               label="CNPJ"
               type="text"
               placeholder="Entre com o CNPJ"
-              className="w-full xl:w-1/3"
               required
             />
           ) : (
@@ -40,7 +41,6 @@ export default function NewEmployerForm() {
               label="CPF"
               type="text"
               placeholder="Entre com o CPF"
-              className="w-full xl:w-1/3"
               required
             />
           )}
@@ -52,17 +52,15 @@ export default function NewEmployerForm() {
               { label: "CNPJ completo", value: "completo" },
             ]}
             defaultValue="base"
-            className="w-full xl:w-1/3"
           />
-        </div>
+        </fieldset>
 
-        <div className="mb-4.5 flex flex-col gap-4.5 xl:flex-row xl:items-end">
+        <fieldset className="*:w-full *:xl:w-1/2">
           {subscriptionType === "CNPJ" ? (
             <InputGroup
               label="Razão Social"
               type="text"
               placeholder="Entre com a razão social"
-              className="w-full xl:w-1/2"
               required
             />
           ) : (
@@ -70,7 +68,6 @@ export default function NewEmployerForm() {
               label="Nome Completo"
               type="text"
               placeholder="Entre com o nome completo"
-              className="w-full xl:w-1/2"
               required
             />
           )}
@@ -79,28 +76,25 @@ export default function NewEmployerForm() {
             label="Nome Fantasia"
             type="text"
             placeholder="Entre com o nome fantasia"
-            className="w-full xl:w-1/2"
           />
-        </div>
+        </fieldset>
 
-        <div className="mb-4.5 flex flex-col gap-4.5 xl:flex-row xl:items-end">
+        <fieldset className="*:w-full *:xl:w-1/2">
           <InputGroup
             label="Identificação"
             type="text"
             placeholder="Entre com a identificação"
-            className="w-full xl:w-1/2"
             required
           />
           <InputGroup
             label="Email"
             type="email"
             placeholder="Entre com o e-mail"
-            className="w-full xl:w-1/2"
             required
           />
-        </div>
+        </fieldset>
 
-        <div className="mb-4.5 flex flex-col gap-4.5 xl:flex-row xl:items-end">
+        <fieldset>
           <InputGroup
             label="CEP"
             type="text"
@@ -115,14 +109,13 @@ export default function NewEmployerForm() {
             className="w-full xl:w-3/4"
             required
           />
-        </div>
+        </fieldset>
 
-        <div className="mb-4.5 flex flex-col gap-4.5 xl:flex-row xl:items-end">
+        <fieldset className="*:w-full *:xl:w-1/3">
           <InputGroup
             label="Bairro"
             type="text"
             placeholder="Entre com o bairro"
-            className="w-full xl:w-1/3"
             required
           />
 
@@ -130,32 +123,20 @@ export default function NewEmployerForm() {
             label="Cidade"
             type="text"
             placeholder="Entre com a cidade"
-            className="w-full xl:w-1/3"
             required
           />
 
-          <Select
-            label="Estado"
-            items={states}
-            defaultValue="SP"
-            className="w-full xl:w-1/3"
-          />
-        </div>
+          <Select label="Estado" items={states} defaultValue="SP" />
+        </fieldset>
 
-        <div className="mb-4.5 flex flex-col gap-4.5 xl:flex-row xl:items-end">
+        <fieldset className="*:w-full *:xl:w-1/2">
           <InputGroup
             label="Telefone"
             type="tel"
             placeholder="Entre com o telefone"
-            className="w-full xl:w-1/2"
           />
-          <Select
-            label="Segmento"
-            items={[]}
-            defaultValue=""
-            className="w-full xl:w-1/2"
-          />
-        </div>
+          <Select label="Segmento" items={[]} defaultValue="" />
+        </fieldset>
 
         <button className="mt-6 flex w-full justify-center rounded-lg bg-primary p-[13px] font-medium text-white hover:bg-opacity-90">
           Salvar
