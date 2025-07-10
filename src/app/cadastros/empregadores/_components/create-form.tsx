@@ -1,20 +1,21 @@
 "use client";
 
 import InputGroup from "@/components/FormElements/InputGroup";
-import { TextAreaGroup } from "@/components/FormElements/InputGroup/text-area";
 import { Select } from "@/components/FormElements/select";
 import { ShowcaseSection } from "@/components/Layouts/showcase-section";
 import { useSearchParams } from "next/navigation";
+import { getBrazilianStates } from "../fetch";
 
 export default function NewEmployerForm() {
   const searchParams = useSearchParams();
+  const states = getBrazilianStates();
 
   const subscriptionType = searchParams.get("tipoInscricao") || "CNPJ";
 
   return (
     <ShowcaseSection title="Formulário de Cadastro" className="!p-6.5">
       <form action="#">
-        <div className="mb-4.5 flex flex-col gap-4.5 xl:flex-row">
+        <div className="mb-4.5 flex flex-col gap-4.5 xl:flex-row xl:items-end">
           <Select
             label="Tipo Inscrição"
             items={[
@@ -55,7 +56,7 @@ export default function NewEmployerForm() {
           />
         </div>
 
-        <div className="mb-4.5 flex flex-col gap-4.5 xl:flex-row">
+        <div className="mb-4.5 flex flex-col gap-4.5 xl:flex-row xl:items-end">
           {subscriptionType === "CNPJ" ? (
             <InputGroup
               label="Razão Social"
@@ -82,7 +83,7 @@ export default function NewEmployerForm() {
           />
         </div>
 
-        <div className="mb-4.5 flex flex-col gap-4.5 xl:flex-row">
+        <div className="mb-4.5 flex flex-col gap-4.5 xl:flex-row xl:items-end">
           <InputGroup
             label="Identificação"
             type="text"
@@ -99,7 +100,7 @@ export default function NewEmployerForm() {
           />
         </div>
 
-        <div className="mb-4.5 flex flex-col gap-4.5 xl:flex-row">
+        <div className="mb-4.5 flex flex-col gap-4.5 xl:flex-row xl:items-end">
           <InputGroup
             label="CEP"
             type="text"
@@ -116,11 +117,11 @@ export default function NewEmployerForm() {
           />
         </div>
 
-        <div className="mb-4.5 flex flex-col gap-4.5 xl:flex-row">
+        <div className="mb-4.5 flex flex-col gap-4.5 xl:flex-row xl:items-end">
           <InputGroup
             label="Bairro"
             type="text"
-            placeholder="Entre com o CPF"
+            placeholder="Entre com o bairro"
             className="w-full xl:w-1/3"
             required
           />
@@ -128,20 +129,20 @@ export default function NewEmployerForm() {
           <InputGroup
             label="Cidade"
             type="text"
-            placeholder="Entre com o CPF"
+            placeholder="Entre com a cidade"
             className="w-full xl:w-1/3"
             required
           />
 
           <Select
             label="Estado"
-            items={[]}
-            defaultValue="base"
+            items={states}
+            defaultValue="SP"
             className="w-full xl:w-1/3"
           />
         </div>
 
-        <div className="mb-4.5 flex flex-col gap-4.5 xl:flex-row">
+        <div className="mb-4.5 flex flex-col gap-4.5 xl:flex-row xl:items-end">
           <InputGroup
             label="Telefone"
             type="tel"
