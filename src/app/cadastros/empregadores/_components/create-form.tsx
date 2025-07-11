@@ -20,6 +20,7 @@ export default function NewEmployerForm() {
       >
         <fieldset className="*:w-full *:xl:w-1/3">
           <Select
+            id="tipoInscricao"
             label="Tipo Inscrição"
             items={[
               { label: "CNPJ", value: "CNPJ" },
@@ -31,6 +32,7 @@ export default function NewEmployerForm() {
 
           {subscriptionType === "CNPJ" ? (
             <InputGroup
+              id="cnpj"
               label="CNPJ"
               type="text"
               placeholder="Entre com o CNPJ"
@@ -38,6 +40,7 @@ export default function NewEmployerForm() {
             />
           ) : (
             <InputGroup
+              id="cpf"
               label="CPF"
               type="text"
               placeholder="Entre com o CPF"
@@ -46,6 +49,7 @@ export default function NewEmployerForm() {
           )}
 
           <Select
+            id="cnpjEsocial"
             label="CNPJ para e-Social"
             items={[
               { label: "CNPJ raiz/base", value: "base" },
@@ -58,6 +62,7 @@ export default function NewEmployerForm() {
         <fieldset className="*:w-full *:xl:w-1/2">
           {subscriptionType === "CNPJ" ? (
             <InputGroup
+              id="razaoSocial"
               label="Razão Social"
               type="text"
               placeholder="Entre com a razão social"
@@ -65,6 +70,7 @@ export default function NewEmployerForm() {
             />
           ) : (
             <InputGroup
+              id="nomeCompleto"
               label="Nome Completo"
               type="text"
               placeholder="Entre com o nome completo"
@@ -73,6 +79,7 @@ export default function NewEmployerForm() {
           )}
 
           <InputGroup
+            id="nomeFantasia"
             label="Nome Fantasia"
             type="text"
             placeholder="Entre com o nome fantasia"
@@ -81,12 +88,14 @@ export default function NewEmployerForm() {
 
         <fieldset className="*:w-full *:xl:w-1/2">
           <InputGroup
+            id="identificacao"
             label="Identificação"
             type="text"
             placeholder="Entre com a identificação"
             required
           />
           <InputGroup
+            id="email"
             label="Email"
             type="email"
             placeholder="Entre com o e-mail"
@@ -96,6 +105,7 @@ export default function NewEmployerForm() {
 
         <fieldset>
           <InputGroup
+            id="cep"
             label="CEP"
             type="text"
             placeholder="Entre com o CEP"
@@ -103,6 +113,7 @@ export default function NewEmployerForm() {
             required
           />
           <InputGroup
+            id="endereco"
             label="Endereço"
             type="text"
             placeholder="Entre com o endereço"
@@ -113,6 +124,7 @@ export default function NewEmployerForm() {
 
         <fieldset className="*:w-full *:xl:w-1/3">
           <InputGroup
+            id="bairro"
             label="Bairro"
             type="text"
             placeholder="Entre com o bairro"
@@ -120,22 +132,24 @@ export default function NewEmployerForm() {
           />
 
           <InputGroup
+            id="cidade"
             label="Cidade"
             type="text"
             placeholder="Entre com a cidade"
             required
           />
 
-          <Select label="Estado" items={states} defaultValue="SP" />
+          <Select id="estado" label="Estado" items={states} defaultValue="SP" />
         </fieldset>
 
         <fieldset className="*:w-full *:xl:w-1/2">
           <InputGroup
+            id="telefone"
             label="Telefone"
             type="tel"
             placeholder="Entre com o telefone"
           />
-          <Select label="Segmento" items={[]} defaultValue="" />
+          <Select id="segmento" label="Segmento" items={[]} defaultValue="" />
         </fieldset>
 
         <button className="mt-6 flex w-full justify-center rounded-lg bg-primary p-[13px] font-medium text-white hover:bg-opacity-90">

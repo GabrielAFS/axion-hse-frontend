@@ -6,6 +6,7 @@ import { useSearchParams, useRouter } from "next/navigation";
 import { useId, useState } from "react";
 
 type PropsType = {
+  id?: string;
   label: string;
   items: { value: string; label: string }[];
   prefixIcon?: React.ReactNode;
@@ -17,6 +18,7 @@ type PropsType = {
 );
 
 export function Select({
+  id,
   items,
   label,
   defaultValue,
@@ -25,7 +27,7 @@ export function Select({
   className,
   queryKey = "select",
 }: PropsType) {
-  const id = useId();
+  const selectId = id ?? useId();
   const [isOptionSelected, setIsOptionSelected] = useState(false);
 
   const router = useRouter();
@@ -62,7 +64,7 @@ export function Select({
         )}
 
         <select
-          id={id}
+          id={selectId}
           defaultValue={defaultValue || ""}
           onChange={handleChange}
           className={cn(

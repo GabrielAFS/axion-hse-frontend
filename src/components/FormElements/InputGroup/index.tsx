@@ -2,6 +2,7 @@ import { cn } from "@/lib/utils";
 import { type HTMLInputTypeAttribute, useId } from "react";
 
 type InputGroupProps = {
+  id?: string;
   className?: string;
   label: string;
   placeholder: string;
@@ -20,6 +21,7 @@ type InputGroupProps = {
 };
 
 const InputGroup: React.FC<InputGroupProps> = ({
+  id,
   className,
   label,
   type,
@@ -31,7 +33,7 @@ const InputGroup: React.FC<InputGroupProps> = ({
   icon,
   ...props
 }) => {
-  const id = useId();
+  const inputId = id ?? useId();
 
   return (
     <div className={className}>
@@ -52,7 +54,7 @@ const InputGroup: React.FC<InputGroupProps> = ({
         )}
       >
         <input
-          id={id}
+          id={inputId}
           type={type}
           name={props.name}
           placeholder={placeholder}
