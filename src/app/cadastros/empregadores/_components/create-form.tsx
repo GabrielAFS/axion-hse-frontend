@@ -2,9 +2,12 @@
 
 import InputGroup from "@/components/FormElements/InputGroup";
 import { Select } from "@/components/FormElements/select";
-import { ShowcaseSection } from "@/components/Layouts/showcase-section";
 import { useSearchParams } from "next/navigation";
 import { getBrazilianStates } from "../fetch";
+import { ShowcaseCollapsible } from "@/components/Layouts/showcase/collapsible";
+
+// TODO: 1. Implementar a validação do formulário usando Zod
+// TODO: 2. Utilizar collapsibles para organizar as outras senções do formulário
 
 export default function NewEmployerForm() {
   const searchParams = useSearchParams();
@@ -13,7 +16,11 @@ export default function NewEmployerForm() {
   const subscriptionType = searchParams.get("tipoInscricao") || "CNPJ";
 
   return (
-    <ShowcaseSection title="Formulário de Cadastro" className="!p-6.5">
+    <ShowcaseCollapsible
+      title="Dados Cadastrais"
+      className="!p-6.5"
+      initiallyOpen
+    >
       <form
         action="#"
         className="*:mb-4.5 *:flex *:flex-col *:gap-4.5 *:xl:flex-row *:xl:items-end"
@@ -156,6 +163,6 @@ export default function NewEmployerForm() {
           Salvar
         </button>
       </form>
-    </ShowcaseSection>
+    </ShowcaseCollapsible>
   );
 }
