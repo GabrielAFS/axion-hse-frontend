@@ -25,7 +25,7 @@ export function ShowcaseCollapsible({
   };
 
   return (
-    <div className="rounded-[10px] bg-white shadow-1 dark:bg-gray-dark dark:shadow-card">
+    <div className="mb-4 rounded-[10px] bg-white shadow-1 dark:bg-gray-dark dark:shadow-card">
       <div
         className={cn(
           `cursor-pointer px-4 py-4 font-medium text-dark dark:text-white sm:px-6 xl:px-7.5`,
