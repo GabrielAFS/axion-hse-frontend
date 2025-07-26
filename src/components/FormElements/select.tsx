@@ -5,17 +5,15 @@ import { cn } from "@/lib/utils";
 import { useSearchParams, useRouter } from "next/navigation";
 import { useId, useState } from "react";
 
-type PropsType = {
+interface PropsType extends React.SelectHTMLAttributes<HTMLSelectElement> {
   id?: string;
   label: string;
+  placeholder?: string;
   items: { value: string; label: string }[];
   prefixIcon?: React.ReactNode;
   className?: string;
   queryKey?: string;
-} & (
-  | { placeholder?: string; defaultValue: string }
-  | { placeholder: string; defaultValue?: string }
-);
+}
 
 export function Select({
   id,
@@ -26,6 +24,7 @@ export function Select({
   prefixIcon,
   className,
   queryKey = "select",
+  ...props
 }: PropsType) {
   const selectId = id ?? useId();
   const [isOptionSelected, setIsOptionSelected] = useState(false);
@@ -64,9 +63,10 @@ export function Select({
         )}
 
         <select
+          {...props}
           id={selectId}
           defaultValue={defaultValue || ""}
-          onChange={handleChange}
+          onChange={props.onChange ?? handleChange}
           className={cn(
             "w-full appearance-none rounded-lg border border-stroke bg-transparent px-5.5 py-3 outline-none transition focus:border-primary active:border-primary dark:border-dark-3 dark:bg-dark-2 dark:focus:border-primary [&>option]:text-dark-5 dark:[&>option]:text-dark-6",
             isOptionSelected && "text-dark dark:text-white",

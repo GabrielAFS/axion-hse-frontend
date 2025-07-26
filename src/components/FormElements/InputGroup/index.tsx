@@ -1,48 +1,36 @@
 import { cn } from "@/lib/utils";
 import { type HTMLInputTypeAttribute, useId } from "react";
 
-type InputGroupProps = {
-  id?: string;
-  className?: string;
+interface InputGroupProps extends React.InputHTMLAttributes<HTMLInputElement> {
   label: string;
   placeholder: string;
   type: HTMLInputTypeAttribute;
   fileStyleVariant?: "style1" | "style2";
-  required?: boolean;
-  disabled?: boolean;
   active?: boolean;
   handleChange?: (e: React.ChangeEvent<HTMLInputElement>) => void;
-  value?: string;
-  name?: string;
   icon?: React.ReactNode;
   iconPosition?: "left" | "right";
   height?: "sm" | "default";
-  defaultValue?: string;
-};
+}
 
 const InputGroup: React.FC<InputGroupProps> = ({
-  id,
-  className,
   label,
-  type,
-  placeholder,
-  required,
-  disabled,
   active,
   handleChange,
   icon,
+  className,
   ...props
 }) => {
-  const inputId = id ?? useId();
+  const inputId = props.id ?? useId();
 
   return (
     <div className={className}>
       <label
-        htmlFor={id}
+        htmlFor={inputId}
         className="text-body-sm font-medium text-dark dark:text-white"
       >
         {label}
-        {required && <span className="ml-1 select-none text-red">*</span>}
+        {props.required && <span className="ml-1 select-none text-red">*</span>}
       </label>
 
       <div
@@ -54,23 +42,17 @@ const InputGroup: React.FC<InputGroupProps> = ({
         )}
       >
         <input
+          {...props}
           id={inputId}
-          type={type}
-          name={props.name}
-          placeholder={placeholder}
           onChange={handleChange}
-          value={props.value}
-          defaultValue={props.defaultValue}
           className={cn(
             "w-full rounded-lg border-[1.5px] border-stroke bg-transparent outline-none transition focus:border-primary disabled:cursor-default disabled:bg-gray-2 data-[active=true]:border-primary dark:border-dark-3 dark:bg-dark-2 dark:focus:border-primary dark:disabled:bg-dark dark:data-[active=true]:border-primary",
-            type === "file"
+            props.type === "file"
               ? getFileStyles(props.fileStyleVariant!)
               : "px-5.5 py-3 text-dark placeholder:text-dark-6 dark:text-white",
             props.iconPosition === "left" && "pl-12.5",
             props.height === "sm" && "py-2.5",
           )}
-          required={required}
-          disabled={disabled}
           data-active={active}
         />
 
