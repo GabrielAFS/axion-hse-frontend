@@ -2,18 +2,54 @@
 
 import InputGroup from "@/components/FormElements/InputGroup";
 import { Select } from "@/components/FormElements/select";
-import { useSearchParams } from "next/navigation";
-import { getBrazilianStates } from "../fetch";
+import { Button } from "@/components/ui-elements/button";
 import { ShowcaseCollapsible } from "@/components/Layouts/showcase/collapsible";
-
-// TODO: 1. Implementar a validação do formulário usando Zod
-// TODO: 2. Utilizar collapsibles para organizar as outras senções do formulário
+import { getBrazilianStates } from "../fetch";
+import { createEmployer } from "../lib/actions";
+import { NewEmployerData, NewEmployerSchema } from "../lib/schemas";
+import { useForm } from "react-hook-form";
+import { zodResolver } from "@hookform/resolvers/zod";
+import { toast } from "react-toastify";
+import { useRouter } from "next/navigation";
+import { CheckBadgeIcon } from "@heroicons/react/24/solid";
+import { useTransition } from "react";
 
 export default function NewEmployerForm() {
-  const searchParams = useSearchParams();
+  const navigate = useRouter();
+  const [isSaving, startIsSaving] = useTransition();
+
   const states = getBrazilianStates();
 
-  const subscriptionType = searchParams.get("tipoInscricao") || "CNPJ";
+  const {
+    register,
+    handleSubmit,
+    formState: { errors },
+    watch,
+  } = useForm<NewEmployerData>({
+    resolver: zodResolver(NewEmployerSchema),
+  });
+
+  const tipoInscricao = watch("tipoInscricao");
+
+  const onSubmit = (data: NewEmployerData) => {
+    startIsSaving(async () => {
+      try {
+        await createEmployer(data);
+
+        toast("Empregador criado com sucesso!", {
+          type: "success",
+          position: "top-right",
+          icon: <CheckBadgeIcon className="h-6 w-6 text-green-500" />,
+          autoClose: 3000,
+          onClose: () => {
+            navigate.replace("/cadastros/empregadores");
+          },
+        });
+      } catch (error) {
+        console.log("Error creating employer:", error);
+      }
+    });
+  };
 
   return (
     <ShowcaseCollapsible
@@ -22,11 +58,12 @@ export default function NewEmployerForm() {
       initiallyOpen
     >
       <form
-        action="#"
+        onSubmit={handleSubmit(onSubmit)}
         className="*:mb-4.5 *:flex *:flex-col *:gap-4.5 *:xl:flex-row *:xl:items-end"
       >
         <fieldset className="*:w-full *:xl:w-1/3">
           <Select
+            {...register("tipoInscricao")}
             id="tipoInscricao"
             label="Tipo Inscrição"
             items={[
@@ -34,11 +71,11 @@ export default function NewEmployerForm() {
               { label: "CPF", value: "CPF" },
             ]}
             defaultValue="CNPJ"
-            queryKey="tipoInscricao"
           />
 
-          {subscriptionType === "CNPJ" ? (
+          {tipoInscricao === "CNPJ" ? (
             <InputGroup
+              {...register("cnpj")}
               id="cnpj"
               label="CNPJ"
               type="text"
@@ -47,6 +84,7 @@ export default function NewEmployerForm() {
             />
           ) : (
             <InputGroup
+              {...register("cpf")}
               id="cpf"
               label="CPF"
               type="text"
@@ -56,6 +94,7 @@ export default function NewEmployerForm() {
           )}
 
           <Select
+            {...register("cnpjEsocial")}
             id="cnpjEsocial"
             label="CNPJ para e-Social"
             items={[
@@ -67,8 +106,9 @@ export default function NewEmployerForm() {
         </fieldset>
 
         <fieldset className="*:w-full *:xl:w-1/2">
-          {subscriptionType === "CNPJ" ? (
+          {tipoInscricao === "CNPJ" ? (
             <InputGroup
+              {...register("razaoSocial")}
               id="razaoSocial"
               label="Razão Social"
               type="text"
@@ -77,6 +117,7 @@ export default function NewEmployerForm() {
             />
           ) : (
             <InputGroup
+              {...register("nomeCompleto")}
               id="nomeCompleto"
               label="Nome Completo"
               type="text"
@@ -86,6 +127,7 @@ export default function NewEmployerForm() {
           )}
 
           <InputGroup
+            {...register("nomeFantasia")}
             id="nomeFantasia"
             label="Nome Fantasia"
             type="text"
@@ -95,6 +137,7 @@ export default function NewEmployerForm() {
 
         <fieldset className="*:w-full *:xl:w-1/2">
           <InputGroup
+            {...register("identificacao")}
             id="identificacao"
             label="Identificação"
             type="text"
@@ -102,6 +145,7 @@ export default function NewEmployerForm() {
             required
           />
           <InputGroup
+            {...register("email")}
             id="email"
             label="Email"
             type="email"
@@ -112,6 +156,7 @@ export default function NewEmployerForm() {
 
         <fieldset>
           <InputGroup
+            {...register("cep")}
             id="cep"
             label="CEP"
             type="text"
@@ -120,6 +165,7 @@ export default function NewEmployerForm() {
             required
           />
           <InputGroup
+            {...register("endereco")}
             id="endereco"
             label="Endereço"
             type="text"
@@ -131,6 +177,7 @@ export default function NewEmployerForm() {
 
         <fieldset className="*:w-full *:xl:w-1/3">
           <InputGroup
+            {...register("bairro")}
             id="bairro"
             label="Bairro"
             type="text"
@@ -139,6 +186,7 @@ export default function NewEmployerForm() {
           />
 
           <InputGroup
+            {...register("cidade")}
             id="cidade"
             label="Cidade"
             type="text"
@@ -146,22 +194,45 @@ export default function NewEmployerForm() {
             required
           />
 
-          <Select id="estado" label="Estado" items={states} defaultValue="SP" />
+          <Select
+            {...register("estado")}
+            id="estado"
+            label="Estado"
+            items={states}
+            defaultValue="SP"
+          />
         </fieldset>
 
-        <fieldset className="*:w-full *:xl:w-1/2">
+        <fieldset className="*:w-full *:xl:w-1/3">
           <InputGroup
+            {...register("telefone")}
             id="telefone"
             label="Telefone"
             type="tel"
             placeholder="Entre com o telefone"
           />
-          <Select id="segmento" label="Segmento" items={[]} defaultValue="" />
+          <InputGroup
+            {...register("whatsapp")}
+            id="whatsapp"
+            label="Whatsapp"
+            type="tel"
+            placeholder="Entre com o whatsapp"
+          />
+          <Select
+            {...register("segmento")}
+            id="segmento"
+            label="Segmento"
+            items={[]}
+            defaultValue=""
+          />
         </fieldset>
 
-        <button className="mt-6 flex w-full justify-center rounded-lg bg-primary p-[13px] font-medium text-white hover:bg-opacity-90">
-          Salvar
-        </button>
+        <Button
+          type="submit"
+          label={isSaving ? "Salvando..." : "Salvar"}
+          className="mt-6 flex w-full cursor-pointer justify-center rounded-lg bg-primary p-[13px] font-medium text-white hover:bg-opacity-90"
+          disabled={isSaving}
+        />
       </form>
     </ShowcaseCollapsible>
   );
