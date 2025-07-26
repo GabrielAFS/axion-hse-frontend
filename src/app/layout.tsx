@@ -6,6 +6,8 @@ import { Sidebar } from "@/components/Layouts/sidebar";
 import "flatpickr/dist/flatpickr.min.css";
 import "jsvectormap/dist/jsvectormap.css";
 
+import { ToastContainer } from "react-toastify";
+
 import { Header } from "@/components/Layouts/header";
 import type { Metadata } from "next";
 import NextTopLoader from "nextjs-toploader";
@@ -38,6 +40,8 @@ export default function RootLayout({ children }: PropsWithChildren) {
               </main>
             </div>
           </div>
+
+          <ToastContainer />
         </Providers>
       </body>
     </html>
