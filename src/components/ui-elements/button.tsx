@@ -1,5 +1,5 @@
 import { cva, VariantProps } from "class-variance-authority";
-import type { HTMLAttributes } from "react";
+import React from "react";
 
 const buttonVariants = cva(
   "inline-flex items-center justify-center gap-2.5 text-center font-medium hover:bg-opacity-90 font-medium transition focus:outline-none",
@@ -33,11 +33,12 @@ const buttonVariants = cva(
   },
 );
 
-type ButtonProps = HTMLAttributes<HTMLButtonElement> &
-  VariantProps<typeof buttonVariants> & {
-    label: string;
-    icon?: React.ReactNode;
-  };
+interface ButtonProps
+  extends VariantProps<typeof buttonVariants>,
+    React.ButtonHTMLAttributes<HTMLButtonElement> {
+  label: string;
+  icon?: React.ReactNode;
+}
 
 export function Button({
   label,
