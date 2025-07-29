@@ -93,3 +93,49 @@ export const NewEmployerSchema = z.object({
 });
 
 export type NewEmployerData = z.infer<typeof NewEmployerSchema>;
+
+export const FinanceiroSchema = z.object({
+  tabelaPreco: z.string().nonempty("A tabela de preço é obrigatória."),
+  faturarPor: z.enum(["empregador", "unidade"], {
+    error: "O campo 'Faturar por' é obrigatório.",
+  }),
+  tipoContrato: z.enum(
+    ["", "mensal", "pontual", "vidas", "convenio", "particular", "permuta"],
+    {
+      error: "O tipo de contrato é obrigatório.",
+    },
+  ),
+  vidas: z
+    .number({
+      error: "O campo 'Vidas' deve ser um número.",
+    })
+    .min(0, "O número de vidas deve ser maior ou igual a 0.")
+    .optional(),
+  centroCusto: z.string(),
+  emailFinanceiro: z
+    .email("O e-mail financeiro deve ser válido.")
+    .nonempty("O e-mail financeiro é obrigatório."),
+  whatsappFinanceiro: z
+    .string()
+    .regex(
+      /^\(\d{2}\) \d{4,5}-\d{4}$/,
+      "O número do WhatsApp deve estar no formato (00) 00000-0000.",
+    )
+    .optional(),
+  envioFatura: z.enum(["email", "whatsapp"], {
+    error: "O envio de faturamento é obrigatório.",
+  }),
+  formaPagamentoExames: z.string(),
+  diaPagamentoExames: z
+    .string()
+    .nonempty("O dia de pagamento para exames é obrigatório."),
+  formaPagamentoServicos: z
+    .string()
+    .nonempty("A forma de pagamento para serviços é obrigatória."),
+  diaPagamentoServicos: z.string(),
+  cobrancaAtendimento: z.boolean().optional(),
+  cobrancaConvenio: z.boolean().optional(),
+  convenio: z.string().optional(),
+});
+
+export type FinanceiroData = z.infer<typeof FinanceiroSchema>;

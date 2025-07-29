@@ -2,7 +2,7 @@ import { CheckIcon, XIcon } from "@/assets/icons";
 import { cn } from "@/lib/utils";
 import { useId } from "react";
 
-type PropsType = {
+interface PropsType extends React.InputHTMLAttributes<HTMLInputElement> {
   withIcon?: "check" | "x";
   withBg?: boolean;
   label: string;
@@ -10,18 +10,19 @@ type PropsType = {
   minimal?: boolean;
   onChange?: (e: React.ChangeEvent<HTMLInputElement>) => void;
   radius?: "default" | "md";
-};
+}
 
 export function Checkbox({
-  withIcon,
+  withIcon = "check",
   label,
   name,
   withBg,
   minimal,
   onChange,
   radius,
+  ...props
 }: PropsType) {
-  const id = useId();
+  const id = props?.id ?? useId();
 
   return (
     <div>
