@@ -1,7 +1,7 @@
 import { cn } from "@/lib/utils";
 import { useId } from "react";
 
-interface PropsType {
+interface PropsType extends React.HTMLAttributes<HTMLTextAreaElement> {
   label: string;
   placeholder: string;
   required?: boolean;
@@ -21,8 +21,9 @@ export function TextAreaGroup({
   className,
   icon,
   defaultValue,
+  ...props
 }: PropsType) {
-  const id = useId();
+  const id = props.id ?? useId();
 
   return (
     <div className={cn(className)}>
@@ -35,6 +36,7 @@ export function TextAreaGroup({
 
       <div className="relative mt-3 [&_svg]:pointer-events-none [&_svg]:absolute [&_svg]:left-5.5 [&_svg]:top-5.5">
         <textarea
+          {...props}
           id={id}
           rows={6}
           placeholder={placeholder}

@@ -1,9 +1,11 @@
 "use server";
 
 import { revalidatePath } from "next/cache";
-import { FinanceiroData, NewEmployerData } from "./schemas";
+import { FinanceiroData, NewEmployerData, ObservacoesData } from "./schemas";
 
-type UpdateEmployerData = Partial<NewEmployerData & FinanceiroData>;
+type UpdateEmployerData = Partial<
+  NewEmployerData & FinanceiroData & ObservacoesData
+>;
 
 export async function createEmployer(data: NewEmployerData) {
   console.log("Creating employer with data:", data);

@@ -139,3 +139,10 @@ export const FinanceiroSchema = z.object({
 });
 
 export type FinanceiroData = z.infer<typeof FinanceiroSchema>;
+
+export const ObservacoesSchema = z.object({
+  obsPrincipais: z.string().max(999, "Máximo de 999 caracteres"),
+  obsParaAtendimento: z.string().max(999, "Máximo de 999 caracteres"),
+});
+
+export type ObservacoesData = z.infer<typeof ObservacoesSchema>;
