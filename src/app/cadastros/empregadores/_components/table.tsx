@@ -4,6 +4,7 @@ import { TableRow } from "@/components/ui/table/row";
 import { TableCell } from "@/components/ui/table/cell";
 import Pagination from "@/components/ui/pagination";
 import { getEmployers } from "../fetch";
+import Link from "next/link";
 
 const COLUMNS = [
   "Identificação",
@@ -76,7 +77,9 @@ export default async function EmployersTable({
             <TableCell>{employer.uf}</TableCell>
             <TableCell>
               <div className="flex gap-1">
-                <PencilSquareIcon className="w-4" />
+                <Link href={`/cadastros/empregadores/${employer.id}/editar`}>
+                  <PencilSquareIcon className="w-4" />
+                </Link>
                 <TrashIcon className="ml-2 w-4" />
               </div>
             </TableCell>

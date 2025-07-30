@@ -10,8 +10,15 @@ import { useRouter } from "next/navigation";
 import { useTransition } from "react";
 import { Checkbox } from "@/components/FormElements/checkbox";
 import { useIsMobile } from "@/hooks/use-mobile";
+import { updateEmployer } from "../../lib/actions";
+import { CheckBadgeIcon } from "@heroicons/react/24/solid";
+import { toast } from "react-toastify";
 
-export default function FinanceiroForm() {
+interface Props {
+  employer: any; // TODO: Replace with actual employer type
+}
+
+export default function FinanceiroForm({ employer }: Props) {
   const navigate = useRouter();
   const isMobile = useIsMobile();
   const [isSaving, startIsSaving] = useTransition();
@@ -43,8 +50,21 @@ export default function FinanceiroForm() {
     resolver: zodResolver(FinanceiroSchema),
   });
 
-  const onSubmit = (data: any) => {
-    startIsSaving(async () => {});
+  const onSubmit = (data: FinanceiroData) => {
+    startIsSaving(async () => {
+      try {
+        await updateEmployer(employer?.id, data);
+
+        toast("Dados financeiros do empregador atualizados com sucesso!", {
+          type: "success",
+          position: "top-right",
+          icon: <CheckBadgeIcon className="h-6 w-6 text-green-500" />,
+          autoClose: 3000,
+        });
+      } catch (error) {
+        console.log("Error creating employer:", error);
+      }
+    });
   };
 
   return (

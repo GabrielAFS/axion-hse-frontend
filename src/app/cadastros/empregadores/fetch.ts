@@ -154,3 +154,8 @@ export function getBrazilianStates() {
     { label: "Tocantins", value: "TO" },
   ];
 }
+
+export async function getEmployerById(id: string) {
+  // Simulate fetching employer data by ID
+  return DUMMY_EMPLOYERS.find((employer) => employer.id === id);
+}
