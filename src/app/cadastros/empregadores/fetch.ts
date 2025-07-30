@@ -2,7 +2,8 @@ const ITEMS_PER_PAGE = 10;
 
 const DUMMY_EMPLOYERS = [
   {
-    id: "Empresa A",
+    id: "1",
+    identificacao: "Empresa A",
     razaoSocial: "Empresa A LTDA",
     situacao: "Ativo",
     tipo: "CPF",
@@ -10,7 +11,8 @@ const DUMMY_EMPLOYERS = [
     uf: "SP",
   },
   {
-    id: "Empresa B",
+    id: "2",
+    identificacao: "Empresa B",
     razaoSocial: "Empresa B LTDA",
     situacao: "Inativo",
     tipo: "CNPJ",
@@ -18,7 +20,8 @@ const DUMMY_EMPLOYERS = [
     uf: "RJ",
   },
   {
-    id: "Empresa C",
+    id: "3",
+    identificacao: "Empresa C",
     razaoSocial: "Empresa C LTDA",
     situacao: "Ativo",
     tipo: "CPF",
@@ -26,7 +29,8 @@ const DUMMY_EMPLOYERS = [
     uf: "SP",
   },
   {
-    id: "Empresa D",
+    id: "4",
+    identificacao: "Empresa D",
     razaoSocial: "Empresa D LTDA",
     situacao: "Inativo",
     tipo: "CNPJ",
@@ -34,7 +38,8 @@ const DUMMY_EMPLOYERS = [
     uf: "RJ",
   },
   {
-    id: "Empresa E",
+    id: "5",
+    identificacao: "Empresa E",
     razaoSocial: "Empresa E LTDA",
     situacao: "Ativo",
     tipo: "CPF",
@@ -42,7 +47,8 @@ const DUMMY_EMPLOYERS = [
     uf: "SP",
   },
   {
-    id: "Empresa F",
+    id: "6",
+    identificacao: "Empresa F",
     razaoSocial: "Empresa F LTDA",
     situacao: "Inativo",
     tipo: "CNPJ",
@@ -50,7 +56,8 @@ const DUMMY_EMPLOYERS = [
     uf: "RJ",
   },
   {
-    id: "Empresa G",
+    id: "7",
+    identificacao: "Empresa G",
     razaoSocial: "Empresa G LTDA",
     situacao: "Ativo",
     tipo: "CPF",
@@ -58,7 +65,8 @@ const DUMMY_EMPLOYERS = [
     uf: "SP",
   },
   {
-    id: "Empresa H",
+    id: "8",
+    identificacao: "Empresa H",
     razaoSocial: "Empresa H LTDA",
     situacao: "Inativo",
     tipo: "CNPJ",
@@ -66,7 +74,8 @@ const DUMMY_EMPLOYERS = [
     uf: "RJ",
   },
   {
-    id: "Empresa I",
+    id: "9",
+    identificacao: "Empresa I",
     razaoSocial: "Empresa I LTDA",
     situacao: "Ativo",
     tipo: "CPF",
@@ -74,7 +83,8 @@ const DUMMY_EMPLOYERS = [
     uf: "SP",
   },
   {
-    id: "Empresa J",
+    id: "10",
+    identificacao: "Empresa J",
     razaoSocial: "Empresa J LTDA",
     situacao: "Inativo",
     tipo: "CNPJ",
@@ -82,7 +92,8 @@ const DUMMY_EMPLOYERS = [
     uf: "RJ",
   },
   {
-    id: "Empresa K",
+    id: "11",
+    identificacao: "Empresa K",
     razaoSocial: "Empresa K LTDA",
     situacao: "Ativo",
     tipo: "CPF",
@@ -90,7 +101,8 @@ const DUMMY_EMPLOYERS = [
     uf: "SP",
   },
   {
-    id: "Empresa L",
+    id: "12",
+    identificacao: "Empresa L",
     razaoSocial: "Empresa L LTDA",
     situacao: "Inativo",
     tipo: "CNPJ",

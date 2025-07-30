@@ -38,7 +38,7 @@ export default async function EmployersTable({
           >
             <div>
               <span>{COLUMNS[0]}:</span>
-              <span>{employer.id}</span>
+              <span>{employer.identificacao}</span>
             </div>
             <div>
               <span>{COLUMNS[1]}:</span>
@@ -68,7 +68,7 @@ export default async function EmployersTable({
         )}
         renderRowsDesktop={(employer) => (
           <TableRow key={employer.id}>
-            <TableCell>{employer.id}</TableCell>
+            <TableCell>{employer.identificacao}</TableCell>
             <TableCell>{employer.razaoSocial}</TableCell>
             <TableCell>{employer.situacao}</TableCell>
             <TableCell>{employer.tipo}</TableCell>
