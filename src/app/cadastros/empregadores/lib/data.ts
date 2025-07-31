@@ -141,3 +141,33 @@ export const DUMMY_EMPLOYER_CONTACTS = [
     email: "carlos@empresa.com.br",
   },
 ];
+
+export const DUMMY_EMPLOYER_SERVICE_UNIT = [
+  {
+    unidade_atendimento: "BERTA CONSULTORIA  - (19.390.220/0001-05)",
+    tabela_preco: "X",
+  },
+  {
+    unidade_atendimento: "MEDEIROS CONSULTORIA EM SSMA - (49.313.303/0001-53)",
+    tabela_preco: "Y",
+  },
+  {
+    unidade_atendimento: "NMD CONSULTORIA EM SSMA  - (45.221.543/0001-77)",
+    tabela_preco: "Z",
+  },
+];
+
+export const DUMMY_EMPLOYER_ACCOUNTING = [
+  {
+    razaoSocial: "Contabilidade A",
+    nome: "Sr. Contador",
+    telefone: "(11) 98199-1234",
+    email: "ocontador@contabilidade.com.br",
+  },
+  {
+    razaoSocial: "Contabilidade B",
+    nome: "Sra. Contador",
+    telefone: "(11) 9100-1234",
+    email: "acontadora@contabilidade.com.br",
+  },
+];
