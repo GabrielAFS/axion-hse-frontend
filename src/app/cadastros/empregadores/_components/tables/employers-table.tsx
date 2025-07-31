@@ -3,7 +3,7 @@ import { TrashIcon, PencilSquareIcon } from "@heroicons/react/24/solid";
 import { TableRow } from "@/components/ui/table/row";
 import { TableCell } from "@/components/ui/table/cell";
 import Pagination from "@/components/ui/pagination";
-import { getEmployers } from "../fetch";
+import { getEmployers } from "../../fetch";
 import Link from "next/link";
 
 const COLUMNS = [

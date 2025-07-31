@@ -1,5 +1,5 @@
 import { Metadata } from "next";
-import EmployersTable from "./_components/table";
+import EmployersTable from "./_components/tables/employers-table";
 import { Button } from "@/components/ui-elements/button";
 import { PlusIcon } from "@heroicons/react/24/solid";
 import Link from "next/link";
