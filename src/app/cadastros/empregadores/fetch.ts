@@ -1,125 +1,30 @@
-const ITEMS_PER_PAGE = 10;
-
-const DUMMY_EMPLOYERS = [
-  {
-    id: "1",
-    identificacao: "Empresa A",
-    razaoSocial: "Empresa A LTDA",
-    situacao: "Ativo",
-    tipo: "CPF",
-    cidade: "São Paulo",
-    uf: "SP",
-  },
-  {
-    id: "2",
-    identificacao: "Empresa B",
-    razaoSocial: "Empresa B LTDA",
-    situacao: "Inativo",
-    tipo: "CNPJ",
-    cidade: "Rio de Janeiro",
-    uf: "RJ",
-  },
-  {
-    id: "3",
-    identificacao: "Empresa C",
-    razaoSocial: "Empresa C LTDA",
-    situacao: "Ativo",
-    tipo: "CPF",
-    cidade: "São Paulo",
-    uf: "SP",
-  },
-  {
-    id: "4",
-    identificacao: "Empresa D",
-    razaoSocial: "Empresa D LTDA",
-    situacao: "Inativo",
-    tipo: "CNPJ",
-    cidade: "Rio de Janeiro",
-    uf: "RJ",
-  },
-  {
-    id: "5",
-    identificacao: "Empresa E",
-    razaoSocial: "Empresa E LTDA",
-    situacao: "Ativo",
-    tipo: "CPF",
-    cidade: "São Paulo",
-    uf: "SP",
-  },
-  {
-    id: "6",
-    identificacao: "Empresa F",
-    razaoSocial: "Empresa F LTDA",
-    situacao: "Inativo",
-    tipo: "CNPJ",
-    cidade: "Rio de Janeiro",
-    uf: "RJ",
-  },
-  {
-    id: "7",
-    identificacao: "Empresa G",
-    razaoSocial: "Empresa G LTDA",
-    situacao: "Ativo",
-    tipo: "CPF",
-    cidade: "São Paulo",
-    uf: "SP",
-  },
-  {
-    id: "8",
-    identificacao: "Empresa H",
-    razaoSocial: "Empresa H LTDA",
-    situacao: "Inativo",
-    tipo: "CNPJ",
-    cidade: "Rio de Janeiro",
-    uf: "RJ",
-  },
-  {
-    id: "9",
-    identificacao: "Empresa I",
-    razaoSocial: "Empresa I LTDA",
-    situacao: "Ativo",
-    tipo: "CPF",
-    cidade: "São Paulo",
-    uf: "SP",
-  },
-  {
-    id: "10",
-    identificacao: "Empresa J",
-    razaoSocial: "Empresa J LTDA",
-    situacao: "Inativo",
-    tipo: "CNPJ",
-    cidade: "Rio de Janeiro",
-    uf: "RJ",
-  },
-  {
-    id: "11",
-    identificacao: "Empresa K",
-    razaoSocial: "Empresa K LTDA",
-    situacao: "Ativo",
-    tipo: "CPF",
-    cidade: "São Paulo",
-    uf: "SP",
-  },
-  {
-    id: "12",
-    identificacao: "Empresa L",
-    razaoSocial: "Empresa L LTDA",
-    situacao: "Inativo",
-    tipo: "CNPJ",
-    cidade: "Rio de Janeiro",
-    uf: "RJ",
-  },
-];
+import {
+  DUMMY_EMPLOYERS,
+  DUMMY_EMPLOYER_CONTACTS,
+  ITEMS_PER_PAGE,
+} from "./lib/data";
 
 export async function getEmployers(query: string, currentPage: number) {
   const startIndex = (currentPage - 1) * ITEMS_PER_PAGE;
   const endIndex = startIndex + ITEMS_PER_PAGE;
   const paginatedData = DUMMY_EMPLOYERS.slice(startIndex, endIndex);
-  const totalPages = Math.ceil(DUMMY_EMPLOYERS.length / ITEMS_PER_PAGE);
+  const totalPages = Math.ceil(DUMMY_EMPLOYER_CONTACTS.length / ITEMS_PER_PAGE);
 
   return {
     totalPages,
     employers: paginatedData,
+  };
+}
+
+export async function getEmployerContacts(query: string, currentPage: number) {
+  const startIndex = (currentPage - 1) * ITEMS_PER_PAGE;
+  const endIndex = startIndex + ITEMS_PER_PAGE;
+  const paginatedData = DUMMY_EMPLOYER_CONTACTS.slice(startIndex, endIndex);
+  const totalPages = Math.ceil(DUMMY_EMPLOYER_CONTACTS.length / ITEMS_PER_PAGE);
+
+  return {
+    totalPages,
+    contacts: paginatedData,
   };
 }
 
