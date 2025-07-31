@@ -6,7 +6,6 @@ import { Select } from "@/components/FormElements/select";
 import { FinanceiroData, FinanceiroSchema } from "../../lib/schemas";
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
-import { useRouter } from "next/navigation";
 import { useTransition } from "react";
 import { Checkbox } from "@/components/FormElements/checkbox";
 import { useIsMobile } from "@/hooks/use-mobile";
@@ -19,7 +18,6 @@ interface Props {
 }
 
 export default function FinanceiroForm({ employer }: Props) {
-  const navigate = useRouter();
   const isMobile = useIsMobile();
   const [isSaving, startIsSaving] = useTransition();
 
