@@ -1,6 +1,8 @@
 import {
   DUMMY_EMPLOYERS,
   DUMMY_EMPLOYER_CONTACTS,
+  DUMMY_EMPLOYER_ACCOUNTING,
+  DUMMY_EMPLOYER_SERVICE_UNIT,
   ITEMS_PER_PAGE,
 } from "./lib/data";
 
@@ -25,6 +27,40 @@ export async function getEmployerContacts(query: string, currentPage: number) {
   return {
     totalPages,
     contacts: paginatedData,
+  };
+}
+
+export async function getEmployerServiceUnits(
+  query: string,
+  currentPage: number,
+) {
+  const startIndex = (currentPage - 1) * ITEMS_PER_PAGE;
+  const endIndex = startIndex + ITEMS_PER_PAGE;
+  const paginatedData = DUMMY_EMPLOYER_SERVICE_UNIT.slice(startIndex, endIndex);
+  const totalPages = Math.ceil(
+    DUMMY_EMPLOYER_SERVICE_UNIT.length / ITEMS_PER_PAGE,
+  );
+
+  return {
+    totalPages,
+    service_units: paginatedData,
+  };
+}
+
+export async function getEmployerAccounting(
+  query: string,
+  currentPage: number,
+) {
+  const startIndex = (currentPage - 1) * ITEMS_PER_PAGE;
+  const endIndex = startIndex + ITEMS_PER_PAGE;
+  const paginatedData = DUMMY_EMPLOYER_ACCOUNTING.slice(startIndex, endIndex);
+  const totalPages = Math.ceil(
+    DUMMY_EMPLOYER_ACCOUNTING.length / ITEMS_PER_PAGE,
+  );
+
+  return {
+    totalPages,
+    accounting: paginatedData,
   };
 }
 
