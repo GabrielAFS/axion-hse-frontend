@@ -2,6 +2,7 @@ import ContatosForm from "./contatos";
 import DadosCadastraisForm from "./dados-cadastrais";
 import FinanceiroForm from "./financeiro";
 import ObservacoesForm from "./observacoes";
+import UnidadeAtendimentoForm from "./unidades-atendimento";
 
 export default function EditEmployerForm({
   employer,
@@ -22,6 +23,8 @@ export default function EditEmployerForm({
       <ObservacoesForm employer={employer} />
 
       <ContatosForm page={currentPage} query={query} />
+
+      <UnidadeAtendimentoForm page={currentPage} query={query} />
     </>
   );
   1;
