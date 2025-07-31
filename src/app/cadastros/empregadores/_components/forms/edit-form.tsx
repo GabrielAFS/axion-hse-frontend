@@ -1,3 +1,4 @@
+import ContabilidadesForm from "./contabilidades";
 import ContatosForm from "./contatos";
 import DadosCadastraisForm from "./dados-cadastrais";
 import FinanceiroForm from "./financeiro";
@@ -25,6 +26,8 @@ export default function EditEmployerForm({
       <ContatosForm page={currentPage} query={query} />
 
       <UnidadeAtendimentoForm page={currentPage} query={query} />
+
+      <ContabilidadesForm page={currentPage} query={query} />
     </>
   );
   1;
