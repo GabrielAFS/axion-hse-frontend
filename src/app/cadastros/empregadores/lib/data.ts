@@ -144,14 +144,17 @@ export const DUMMY_EMPLOYER_CONTACTS = [
 
 export const DUMMY_EMPLOYER_SERVICE_UNIT = [
   {
+    id: "1",
     unidade_atendimento: "BERTA CONSULTORIA  - (19.390.220/0001-05)",
     tabela_preco: "X",
   },
   {
+    id: "2",
     unidade_atendimento: "MEDEIROS CONSULTORIA EM SSMA - (49.313.303/0001-53)",
     tabela_preco: "Y",
   },
   {
+    id: "3",
     unidade_atendimento: "NMD CONSULTORIA EM SSMA  - (45.221.543/0001-77)",
     tabela_preco: "Z",
   },
@@ -159,12 +162,14 @@ export const DUMMY_EMPLOYER_SERVICE_UNIT = [
 
 export const DUMMY_EMPLOYER_ACCOUNTING = [
   {
+    id: "1",
     razaoSocial: "Contabilidade A",
     nome: "Sr. Contador",
     telefone: "(11) 98199-1234",
     email: "ocontador@contabilidade.com.br",
   },
   {
+    id: "2",
     razaoSocial: "Contabilidade B",
     nome: "Sra. Contador",
     telefone: "(11) 9100-1234",
