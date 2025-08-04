@@ -146,3 +146,21 @@ export const ObservacoesSchema = z.object({
 });
 
 export type ObservacoesData = z.infer<typeof ObservacoesSchema>;
+
+export const ResponsavelPcmsoSchema = z.object({
+  tituloResponsavelPcmso: z.string(),
+  nomeResponsavelPcmso: z.string(),
+  cpfResponsavelPcmso: z
+    .string()
+    .regex(
+      /^\d{3}\.\d{3}\.\d{3}-\d{2}$/,
+      "O CPF deve estar no formato 000.000.000-00.",
+    )
+    .optional(),
+  crmResponsavelPcmso: z.string(),
+  estadoResponsavelPcmso: z
+    .string()
+    .length(2, "O estado deve ter exatamente 2 caracteres."),
+});
+
+export type ResponsavelPcmsoData = z.infer<typeof ResponsavelPcmsoSchema>;
