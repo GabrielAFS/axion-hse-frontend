@@ -176,3 +176,76 @@ export const DUMMY_EMPLOYER_ACCOUNTING = [
     email: "acontadora@contabilidade.com.br",
   },
 ];
+
+export const DUMMY_DOCTORS = [
+  {
+    nome: "Adriana Teles de Andrade (199.351.938-61)",
+    id: "1",
+    cpf: "199.351.938-61",
+    crm: "12345",
+    uf: "SP",
+  },
+  {
+    nome: "Ahmad Ali A. Rahim ()",
+    id: "2",
+    cpf: "015.949.510-55",
+    crm: "14785",
+    uf: "SP",
+  },
+  {
+    nome: "Álvaro barnada ()",
+    id: "3",
+    cpf: "137.607.140-13",
+    crm: "36985",
+    uf: "SP",
+  },
+  {
+    nome: "Karyme Aballa ()",
+    id: "4",
+    cpf: "294.201.970-00",
+    crm: "25874",
+    uf: "SP",
+  },
+  {
+    nome: "Kennedy Castro Santos ()",
+    id: "5",
+    cpf: "698.464.780-03",
+    crm: "98756",
+    uf: "SP",
+  },
+  {
+    nome: "Letícia Vieira da Silva (420.440.008-65)",
+    id: "6",
+    cpf: "420.440.008-65",
+    crm: "65423",
+    uf: "SP",
+  },
+  {
+    nome: "Luis Alberto L. Cardoso ()",
+    id: "7",
+    cpf: "443.429.900-08",
+    crm: "35748",
+    uf: "SP",
+  },
+  {
+    nome: "Samuel Vitor Barbosa ()",
+    id: "8",
+    cpf: "020.484.550-50",
+    crm: "95164",
+    uf: "SP",
+  },
+  {
+    nome: "Sayd Ali El Malt (490.509.378-37)",
+    id: "9",
+    cpf: "490.509.378-37",
+    crm: "19546",
+    uf: "SP",
+  },
+  {
+    nome: "Sebastião Lacerda Lopes Junior (491.451.691-87)",
+    id: "10",
+    cpf: "491.451.691-87",
+    crm: "64289",
+    uf: "SP",
+  },
+];

@@ -4,6 +4,7 @@ import {
   DUMMY_EMPLOYER_ACCOUNTING,
   DUMMY_EMPLOYER_SERVICE_UNIT,
   ITEMS_PER_PAGE,
+  DUMMY_DOCTORS,
 } from "./lib/data";
 
 export async function getEmployers(query: string, currentPage: number) {
@@ -94,6 +95,10 @@ export function getBrazilianStates() {
     { label: "Sergipe", value: "SE" },
     { label: "Tocantins", value: "TO" },
   ];
+}
+
+export async function getDoctors() {
+  return DUMMY_DOCTORS;
 }
 
 export async function getEmployerById(id: string) {
