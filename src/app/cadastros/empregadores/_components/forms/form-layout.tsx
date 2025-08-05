@@ -11,7 +11,7 @@ interface Props extends React.PropsWithChildren {
 export default function FormLayout({
   children,
   title,
-  initiallyOpen = true,
+  initiallyOpen = false,
   isSaving = false,
   onSubmit,
 }: Props) {
