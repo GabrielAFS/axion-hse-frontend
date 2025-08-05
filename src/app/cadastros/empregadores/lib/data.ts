@@ -1,3 +1,5 @@
+import { Doctor } from "@/types/empregadores";
+
 export const ITEMS_PER_PAGE = 10;
 
 export const DUMMY_EMPLOYERS = [
@@ -177,7 +179,7 @@ export const DUMMY_EMPLOYER_ACCOUNTING = [
   },
 ];
 
-export const DUMMY_DOCTORS = [
+export const DUMMY_DOCTORS: Doctor[] = [
   {
     nome: "Adriana Teles de Andrade (199.351.938-61)",
     id: "1",
