@@ -3,6 +3,7 @@ import ContatosForm from "./contatos";
 import DadosCadastraisForm from "./dados-cadastrais";
 import FinanceiroForm from "./financeiro";
 import ObservacoesForm from "./observacoes";
+import ResponsavelPCMSOForm from "./responsavel-pcmso";
 import UnidadeAtendimentoForm from "./unidades-atendimento";
 
 export default function EditEmployerForm({
@@ -26,6 +27,8 @@ export default function EditEmployerForm({
       <ContatosForm page={currentPage} query={query} />
 
       <UnidadeAtendimentoForm page={currentPage} query={query} />
+
+      <ResponsavelPCMSOForm employer={employer} />
 
       <ContabilidadesForm page={currentPage} query={query} />
     </>
